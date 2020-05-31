@@ -14,7 +14,7 @@ Prerequisite
 --------------------
 1. Install Chromium browser
 2. Download Chromium Selenium driver: https://chromedriver.storage.googleapis.com/index.html?path=83.0.4103.39/
-   Download it and replate `driverpath` with the file's path
+   Download it and replace the `driverpath` variable in `script.py` with the file's path
 3. Use pip to install `selenium` and `Jinja2` (see requirements.txt)
 
 
