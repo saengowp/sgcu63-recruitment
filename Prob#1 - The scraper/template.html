@@ -1,0 +1,18 @@
+<html>
+<head>
+	<title>Baan Slogan List</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>ชื่อบ้าน</th>
+			<th>สโลแกน</th>
+		</tr>
+		{% for baan in data %}
+		<tr>
+			<td>{{ baan.name }}</td>
+			<td>{{ baan.slogan }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+</html>
