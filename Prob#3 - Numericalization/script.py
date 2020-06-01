@@ -1,3 +1,7 @@
+"""
+Output digit ascii art
+"""
+
 CANVAS_SIZE = 5
 
 def texdraw(*points):
