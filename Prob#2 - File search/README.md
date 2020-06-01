@@ -6,7 +6,7 @@ Usage
 Use python3 to import the `script.py`. No additional library needed.
 
 ```
->>> import script
+>>> from script import fileSearch
 >>> fileSearch("file", '{"_files":["file", "fileA"], "dirA":{}}')
 ```
 
