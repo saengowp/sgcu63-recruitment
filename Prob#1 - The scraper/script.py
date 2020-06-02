@@ -28,6 +28,8 @@ Usage
 
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 from jinja2 import Template
 from pathlib import Path
 
@@ -43,10 +45,20 @@ class IndexPage:
     def __activatetabpane(self):
         """ A helper method that clicks all the baan categories to load them """
 
+        #Ensure sidebar is displayed
+        self.driver.set_window_size(1000, 500)
+
+        #Ensure tab loaded
+        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, ".ant-tabs-nav")))
         tabs = self.driver.find_elements(By.CSS_SELECTOR, ".ant-tabs-nav .ant-tabs-tab")
         print("index: clicking baan size selection buttons: " + ', '.join(t.text for t in tabs))
-        for t in tabs:
+
+        tabindicators = self.driver.find_elements(By.CSS_SELECTOR, ".ant-tabs-tabpane")
+        print("index: found {} tabs".format(len(tabindicators)))
+        for t, ind in zip(tabs, tabindicators):
             t.click()
+            WebDriverWait(self.driver, 10).until(EC.visibility_of(ind))
+
 
     def baannamelist(self):
         """ Return list of baan's id """
